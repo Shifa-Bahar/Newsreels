@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+        <variable
+            name="click"
+            type="com.example.myapplication.fragment.ClickFragment1" />
+        <variable
+            name="viewmodel"
+            type="com.example.myapplication.viewmodel.UserViewModel" />
+        <variable
+            name="textObserver"
+            type="com.example.myapplication.utils.InputEditTextValidator" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/userapi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/blueBotton"
+                    android:backgroundTint="@color/accent_blue"
+                    android:layout_marginRight="10dp"
+                    android:textAllCaps="false"
+                    android:onClick="@{()->click.getAlbum()}"
+                    android:text="Cricket" />
+
+                <Button
+                    android:id="@+id/todoapi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/blueBotton"
+                    android:textAllCaps="false"
+                    android:backgroundTint="@color/accent_blue"
+                    android:onClick="@{()->click.getTodo()}"
+                    android:text="Football" />
+            </LinearLayout>
+<com.harrywhewell.scrolldatepicker.DayScrollDatePicker
+    android:id="@+id/tvdate"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    >
+
+</com.harrywhewell.scrolldatepicker.DayScrollDatePicker>
+
+<!--            <View-->
+<!--                android:id="@+id/view2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:background="@color/grey"-->
+<!--                android:visibility="visible"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_items"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:spanCount="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout_search"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_buy_again" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv1_items"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:spanCount="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout_search"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_football" />
+
+        </LinearLayout>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
